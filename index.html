@@ -1,111 +1,421 @@
-
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#0a0e1a;font-family:var(--font-sans)}
-.wrap{padding:1.5rem;background:#0a0e1a;min-height:100vh}
-.header{text-align:center;margin-bottom:1.5rem}
-.logo{font-size:22px;font-weight:500;color:#fff;letter-spacing:3px;margin-bottom:8px}
-.logo span{color:#00eeff}
-.banner{display:inline-block;border:1px solid #00eeff;border-radius:var(--radius);padding:8px 24px;font-size:18px;font-weight:500;color:#fff;margin-bottom:6px;box-shadow:0 0 12px #00eeff44}
-.subtitle{font-size:13px;color:#00eeff}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:1.25rem}
-.card{border-radius:12px;padding:1rem;cursor:pointer;text-decoration:none;display:block;border:1px solid;transition:transform 0.15s;position:relative;overflow:hidden}
-.card:hover{transform:translateY(-3px)}
-.level-badge{font-size:10px;font-weight:500;padding:3px 8px;border-radius:20px;display:inline-block;margin-bottom:8px;letter-spacing:.04em}
-.site-icon{font-size:28px;margin-bottom:6px}
-.site-name{font-size:15px;font-weight:500;color:#fff;margin-bottom:2px}
-.site-url{font-size:11px;margin-bottom:6px}
-.site-desc{font-size:11px;color:#ccc;line-height:1.5;margin-bottom:8px}
-.stars{font-size:11px;margin-bottom:6px}
-.play-btn{font-size:11px;font-weight:500;padding:4px 10px;border-radius:20px;display:inline-block;margin-top:4px}
-.free-tag{position:absolute;top:8px;right:8px;font-size:9px;font-weight:500;padding:2px 6px;border-radius:10px;background:#00ff8844;color:#00ff88;border:0.5px solid #00ff88}
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  .wrap {
+    padding: 1rem;
+    background: #0a0e1a;
+    min-height: 100vh;
+    font-family: var(--font-sans);
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid #00eeff22;
+  }
+  .logo {
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+  }
+  .logo span {
+    color: #00eeff;
+  }
+  .banner {
+    display: inline-block;
+    border: 1px solid #00eeff;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 4px;
+    box-shadow: 0 0 10px #00eeff33;
+  }
+  .subtitle {
+    font-size: 12px;
+    color: #00eeff;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 420px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .card {
+    border-radius: 12px;
+    padding: 0.875rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    transition: transform 0.15s;
+    position: relative;
+    overflow: hidden;
+    min-height: 160px;
+  }
+  .card:active {
+    transform: scale(0.97);
+  }
+  .level-badge {
+    font-size: 9px;
+    font-weight: 500;
+    padding: 2px 7px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 6px;
+    letter-spacing: 0.04em;
+    align-self: flex-start;
+  }
+  .site-icon {
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+  .site-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .site-url {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+  .site-desc {
+    font-size: 11px;
+    color: #bbb;
+    line-height: 1.45;
+    margin-bottom: 6px;
+    flex: 1;
+  }
+  .stars {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+  .play-btn {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: auto;
+  }
+  .free-tag {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    font-size: 8px;
+    font-weight: 500;
+    padding: 2px 5px;
+    border-radius: 8px;
+    background: #00ff8822;
+    color: #00ff88;
+    border: 0.5px solid #00ff88;
+  }
 
-.c1{background:#0d1f0d;border-color:#00cc44;box-shadow:0 0 10px #00cc4422}
-.c1 .level-badge{background:#00cc4422;color:#00cc44;border:0.5px solid #00cc44}
-.c1 .site-url{color:#00cc44}
-.c1 .play-btn{background:#00cc44;color:#000}
+  .c1 {
+    background: #0d1f0d;
+    border-color: #00cc44;
+    box-shadow: 0 0 8px #00cc4418;
+  }
+  .c1 .level-badge {
+    background: #00cc4422;
+    color: #00cc44;
+    border: 0.5px solid #00cc44;
+  }
+  .c1 .site-url {
+    color: #00cc44;
+  }
+  .c1 .play-btn {
+    background: #00cc44;
+    color: #000;
+  }
 
-.c2{background:#0d0d1f;border-color:#4488ff;box-shadow:0 0 10px #4488ff22}
-.c2 .level-badge{background:#4488ff22;color:#4488ff;border:0.5px solid #4488ff}
-.c2 .site-url{color:#4488ff}
-.c2 .play-btn{background:#4488ff;color:#fff}
+  .c2 {
+    background: #0d0d1f;
+    border-color: #4488ff;
+    box-shadow: 0 0 8px #4488ff18;
+  }
+  .c2 .level-badge {
+    background: #4488ff22;
+    color: #4488ff;
+    border: 0.5px solid #4488ff;
+  }
+  .c2 .site-url {
+    color: #4488ff;
+  }
+  .c2 .play-btn {
+    background: #4488ff;
+    color: #fff;
+  }
 
-.c3{background:#1f150d;border-color:#ff8800;box-shadow:0 0 10px #ff880022}
-.c3 .level-badge{background:#ff880022;color:#ff8800;border:0.5px solid #ff8800}
-.c3 .site-url{color:#ff8800}
-.c3 .play-btn{background:#ff8800;color:#000}
+  .c3 {
+    background: #1f150d;
+    border-color: #ff8800;
+    box-shadow: 0 0 8px #ff880018;
+  }
+  .c3 .level-badge {
+    background: #ff880022;
+    color: #ff8800;
+    border: 0.5px solid #ff8800;
+  }
+  .c3 .site-url {
+    color: #ff8800;
+  }
+  .c3 .play-btn {
+    background: #ff8800;
+    color: #000;
+  }
 
-.c4{background:#150d1f;border-color:#aa44ff;box-shadow:0 0 10px #aa44ff22}
-.c4 .level-badge{background:#aa44ff22;color:#aa44ff;border:0.5px solid #aa44ff}
-.c4 .site-url{color:#aa44ff}
-.c4 .play-btn{background:#aa44ff;color:#fff}
+  .c4 {
+    background: #150d1f;
+    border-color: #aa44ff;
+    box-shadow: 0 0 8px #aa44ff18;
+  }
+  .c4 .level-badge {
+    background: #aa44ff22;
+    color: #aa44ff;
+    border: 0.5px solid #aa44ff;
+  }
+  .c4 .site-url {
+    color: #aa44ff;
+  }
+  .c4 .play-btn {
+    background: #aa44ff;
+    color: #fff;
+  }
 
-.c5{background:#0d1a1f;border-color:#00eeff;box-shadow:0 0 10px #00eeff22}
-.c5 .level-badge{background:#00eeff22;color:#00eeff;border:0.5px solid #00eeff}
-.c5 .site-url{color:#00eeff}
-.c5 .play-btn{background:#00eeff;color:#000}
+  .c5 {
+    background: #0d1a1f;
+    border-color: #00eeff;
+    box-shadow: 0 0 8px #00eeff18;
+  }
+  .c5 .level-badge {
+    background: #00eeff22;
+    color: #00eeff;
+    border: 0.5px solid #00eeff;
+  }
+  .c5 .site-url {
+    color: #00eeff;
+  }
+  .c5 .play-btn {
+    background: #00eeff;
+    color: #000;
+  }
 
-.c6{background:#1f0d15;border-color:#ff44aa;box-shadow:0 0 10px #ff44aa22}
-.c6 .level-badge{background:#ff44aa22;color:#ff44aa;border:0.5px solid #ff44aa}
-.c6 .site-url{color:#ff44aa}
-.c6 .play-btn{background:#ff44aa;color:#fff}
+  .c6 {
+    background: #1f0d15;
+    border-color: #ff44aa;
+    box-shadow: 0 0 8px #ff44aa18;
+  }
+  .c6 .level-badge {
+    background: #ff44aa22;
+    color: #ff44aa;
+    border: 0.5px solid #ff44aa;
+  }
+  .c6 .site-url {
+    color: #ff44aa;
+  }
+  .c6 .play-btn {
+    background: #ff44aa;
+    color: #fff;
+  }
 
-.c7{background:#1a1500;border-color:#ffcc00;box-shadow:0 0 10px #ffcc0022}
-.c7 .level-badge{background:#ffcc0022;color:#ffcc00;border:0.5px solid #ffcc00}
-.c7 .site-url{color:#ffcc00}
-.c7 .play-btn{background:#ffcc00;color:#000}
+  .c7 {
+    background: #1a1500;
+    border-color: #ffcc00;
+    box-shadow: 0 0 8px #ffcc0018;
+  }
+  .c7 .level-badge {
+    background: #ffcc0022;
+    color: #ffcc00;
+    border: 0.5px solid #ffcc00;
+  }
+  .c7 .site-url {
+    color: #ffcc00;
+  }
+  .c7 .play-btn {
+    background: #ffcc00;
+    color: #000;
+  }
 
-.c8{background:#1f0d0d;border-color:#ff3333;box-shadow:0 0 15px #ff333344}
-.c8 .level-badge{background:#ff333322;color:#ff3333;border:0.5px solid #ff3333}
-.c8 .site-url{color:#ff3333}
-.c8 .play-btn{background:#ff3333;color:#fff}
+  .c8 {
+    background: #1f0d0d;
+    border-color: #ff3333;
+    box-shadow: 0 0 12px #ff333333;
+  }
+  .c8 .level-badge {
+    background: #ff333322;
+    color: #ff3333;
+    border: 0.5px solid #ff3333;
+  }
+  .c8 .site-url {
+    color: #ff3333;
+  }
+  .c8 .play-btn {
+    background: #ff3333;
+    color: #fff;
+  }
 
-.path{background:#0d1220;border:1px solid #00eeff44;border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem}
-.path-title{font-size:12px;font-weight:500;color:#00eeff;text-align:center;margin-bottom:10px;letter-spacing:.06em;text-transform:uppercase}
-.path-row{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px}
-.path-stop{font-size:11px;padding:4px 10px;border-radius:20px;border:0.5px solid #ffffff22;color:#ccc;background:#ffffff0a}
-.path-arrow{color:#00eeff;font-size:12px}
-.path-boss{border-color:#ff3333!important;color:#ff3333!important;background:#ff333311!important}
+  .path {
+    background: #0d1220;
+    border: 1px solid #00eeff33;
+    border-radius: 12px;
+    padding: 0.875rem;
+    margin-bottom: 0.875rem;
+  }
+  .path-title {
+    font-size: 11px;
+    font-weight: 500;
+    color: #00eeff;
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .path-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .path-stop {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    border: 0.5px solid #ffffff22;
+    color: #ccc;
+    background: #ffffff08;
+  }
+  .path-arrow {
+    color: #00eeff;
+    font-size: 11px;
+  }
+  .path-boss {
+    border-color: #ff3333 !important;
+    color: #ff3333 !important;
+    background: #ff333311 !important;
+  }
 
-.tips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1rem}
-.tip{border-radius:var(--radius);padding:.75rem;border:0.5px solid}
-.tip-t{font-size:11px;font-weight:500;margin-bottom:4px}
-.tip-b{font-size:11px;color:#ccc;line-height:1.5}
-.t1{border-color:#00cc4444;background:#00cc4411}.t1 .tip-t{color:#00cc44}
-.t2{border-color:#4488ff44;background:#4488ff11}.t2 .tip-t{color:#4488ff}
-.t3{border-color:#ff880044;background:#ff880011}.t3 .tip-t{color:#ff8800}
+  .tips {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 0.875rem;
+  }
+  .tip {
+    border-radius: 8px;
+    padding: 0.75rem;
+    border: 0.5px solid;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .tip-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .tip-content {
+  }
+  .tip-t {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+  .tip-b {
+    font-size: 11px;
+    color: #bbb;
+    line-height: 1.5;
+  }
+  .t1 {
+    border-color: #00cc4433;
+    background: #00cc4409;
+  }
+  .t1 .tip-t {
+    color: #00cc44;
+  }
+  .t2 {
+    border-color: #4488ff33;
+    background: #4488ff09;
+  }
+  .t2 .tip-t {
+    color: #4488ff;
+  }
+  .t3 {
+    border-color: #ff880033;
+    background: #ff880009;
+  }
+  .t3 .tip-t {
+    color: #ff8800;
+  }
 
-.footer{text-align:center;padding:.75rem;border-top:0.5px solid #00eeff22}
-.footer p{font-size:12px;color:#888;line-height:1.6}
-.footer span{color:#00eeff}
+  .footer {
+    text-align: center;
+    padding: 0.75rem 0;
+    border-top: 0.5px solid #00eeff22;
+  }
+  .footer p {
+    font-size: 11px;
+    color: #777;
+    line-height: 1.7;
+  }
+  .footer span {
+    color: #00eeff;
+  }
 </style>
 
 <div class="wrap">
   <div class="header">
     <div class="logo">C<span>O</span>DE CRAFT</div>
     <div class="banner">Learn HTML Like a Game!</div>
-    <div class="subtitle">Click any card to open the website directly</div>
+    <div class="subtitle">Tap any card to open the website</div>
   </div>
 
   <div class="grid">
-    <a class="card c1" href="https://www.codecademy.com/learn/learn-html" target="_blank">
+    <a
+      class="card c1"
+      href="https://www.codecademy.com/learn/learn-html"
+      target="_blank"
+    >
       <div class="free-tag">FREE</div>
       <div class="level-badge">LEVEL 1 — Start Here!</div>
       <div class="site-icon">🐸</div>
       <div class="site-name">Codecademy</div>
       <div class="site-url">codecademy.com</div>
-      <div class="site-desc">Type code and see results instantly! No setup — works in your browser like a game.</div>
+      <div class="site-desc">
+        Type code and see results instantly! Works in your browser like a game.
+      </div>
       <div class="stars">⭐ Beginner</div>
       <div class="play-btn">PLAY NOW →</div>
     </a>
 
-    <a class="card c2" href="https://www.freecodecamp.org/learn/2022/responsive-web-design/" target="_blank">
+    <a
+      class="card c2"
+      href="https://www.freecodecamp.org/learn/2022/responsive-web-design/"
+      target="_blank"
+    >
       <div class="free-tag">100% FREE</div>
       <div class="level-badge">LEVEL 2</div>
       <div class="site-icon">🏕️</div>
       <div class="site-name">freeCodeCamp</div>
       <div class="site-url">freecodecamp.org</div>
-      <div class="site-desc">Complete challenges and earn certificates! HTML, CSS, JavaScript and more.</div>
+      <div class="site-desc">
+        Complete challenges and earn certificates! HTML, CSS, JS and more.
+      </div>
       <div class="stars">⭐ Beginner</div>
       <div class="play-btn">PLAY NOW →</div>
     </a>
@@ -116,7 +426,9 @@ body{background:#0a0e1a;font-family:var(--font-sans)}
       <div class="site-icon">🏆</div>
       <div class="site-name">W3Schools</div>
       <div class="site-url">w3schools.com</div>
-      <div class="site-desc">Learn any HTML tag instantly with live Try-It editor! Every tag explained simply.</div>
+      <div class="site-desc">
+        Learn any HTML tag with live Try-It editor! Every tag explained simply.
+      </div>
       <div class="stars">⭐⭐ Intermediate</div>
       <div class="play-btn">PLAY NOW →</div>
     </a>
@@ -127,18 +439,26 @@ body{background:#0a0e1a;font-family:var(--font-sans)}
       <div class="site-icon">🎮</div>
       <div class="site-name">CSS Diner</div>
       <div class="site-url">flukeout.github.io</div>
-      <div class="site-desc">A restaurant game where you select food using CSS! 30 levels — genuinely addictive!</div>
+      <div class="site-desc">
+        A restaurant game using CSS selectors! 30 levels — genuinely addictive!
+      </div>
       <div class="stars">⭐⭐ Intermediate</div>
       <div class="play-btn">PLAY NOW →</div>
     </a>
 
-    <a class="card c5" href="https://www.khanacademy.org/computing/computer-programming/html-css" target="_blank">
+    <a
+      class="card c5"
+      href="https://www.khanacademy.org/computing/computer-programming/html-css"
+      target="_blank"
+    >
       <div class="free-tag">FREE</div>
       <div class="level-badge">LEVEL 5</div>
       <div class="site-icon">🧩</div>
       <div class="site-name">Khan Academy</div>
       <div class="site-url">khanacademy.org</div>
-      <div class="site-desc">Video lessons + coding exercises side by side! Earn points and badges as you learn.</div>
+      <div class="site-desc">
+        Video lessons + coding exercises! Earn points and badges as you learn.
+      </div>
       <div class="stars">⭐ Beginner</div>
       <div class="play-btn">PLAY NOW →</div>
     </a>
@@ -149,7 +469,10 @@ body{background:#0a0e1a;font-family:var(--font-sans)}
       <div class="site-icon">🚀</div>
       <div class="site-name">Replit</div>
       <div class="site-url">replit.com</div>
-      <div class="site-desc">Code in the browser and see your website LIVE instantly! Share projects with friends.</div>
+      <div class="site-desc">
+        Code in the browser and see your website LIVE! Share projects with
+        friends.
+      </div>
       <div class="stars">⭐⭐ Intermediate</div>
       <div class="play-btn">PLAY NOW →</div>
     </a>
@@ -160,25 +483,33 @@ body{background:#0a0e1a;font-family:var(--font-sans)}
       <div class="site-icon">✏️</div>
       <div class="site-name">CodePen</div>
       <div class="site-url">codepen.io</div>
-      <div class="site-desc">Build HTML projects and show them to the world! Learn from real examples.</div>
+      <div class="site-desc">
+        Build HTML projects and show the world! Learn from real examples live.
+      </div>
       <div class="stars">⭐⭐ Intermediate</div>
       <div class="play-btn">PLAY NOW →</div>
     </a>
 
-    <a class="card c8" href="https://www.frontendmentor.io/challenges?difficulties=1" target="_blank">
+    <a
+      class="card c8"
+      href="https://www.frontendmentor.io/challenges?difficulties=1"
+      target="_blank"
+    >
       <div class="free-tag">FREE</div>
-      <div class="level-badge">🔥 LEVEL 8 — BOSS LEVEL!</div>
+      <div class="level-badge">🔥 LEVEL 8 — BOSS!</div>
       <div class="site-icon">💀</div>
       <div class="site-name">Frontend Mentor</div>
       <div class="site-url">frontendmentor.io</div>
-      <div class="site-desc">Real website challenges — build actual projects! Compare with others — are you the best?</div>
+      <div class="site-desc">
+        Real website challenges — build actual projects! Are you the best coder?
+      </div>
       <div class="stars">⭐⭐⭐ Advanced</div>
       <div class="play-btn">ACCEPT CHALLENGE →</div>
     </a>
   </div>
 
   <div class="path">
-    <div class="path-title">Your Learning Journey — complete in order!</div>
+    <div class="path-title">Your Learning Journey</div>
     <div class="path-row">
       <span class="path-stop">🟢 START</span>
       <span class="path-arrow">→</span>
@@ -200,21 +531,36 @@ body{background:#0a0e1a;font-family:var(--font-sans)}
 
   <div class="tips">
     <div class="tip t1">
-      <div class="tip-t">💡 Tip 1</div>
-      <div class="tip-b">Spend 15 minutes daily on any of these sites — consistency beats cramming!</div>
+      <div class="tip-icon">💡</div>
+      <div class="tip-content">
+        <div class="tip-t">Tip 1 — Be consistent</div>
+        <div class="tip-b">
+          15 minutes daily beats 2 hours once a week — open one site every day!
+        </div>
+      </div>
     </div>
     <div class="tip t2">
-      <div class="tip-t">💡 Tip 2</div>
-      <div class="tip-b">Start with Codecademy or freeCodeCamp first — they guide you step by step.</div>
+      <div class="tip-icon">💡</div>
+      <div class="tip-content">
+        <div class="tip-t">Tip 2 — Start here</div>
+        <div class="tip-b">
+          Begin with Codecademy or freeCodeCamp — they guide you step by step.
+        </div>
+      </div>
     </div>
     <div class="tip t3">
-      <div class="tip-t">💡 Tip 3</div>
-      <div class="tip-b">Build something on Replit and share the link with your class — show your work!</div>
+      <div class="tip-icon">💡</div>
+      <div class="tip-content">
+        <div class="tip-t">Tip 3 — Show your work</div>
+        <div class="tip-b">
+          Build something on Replit and share the link with your class!
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="footer">
-    <p>The best coders practice <span>every single day</span> — even 15 minutes counts!</p>
-    <p>Pick ONE site and <span>start TODAY</span> — don't wait for the next lecture!</p>
+    <p>The best coders practice <span>every single day</span></p>
+    <p>Pick ONE site and <span>start TODAY!</span></p>
   </div>
 </div>
